@@ -82,13 +82,17 @@
     left: 0;}
         p{margin:0;}
         a{color:black; text-decoration: none;}
+        .item{
+            width: 400px;
+            height: 255px;
+            display: block;
+            border-radius: 6px;
+        }   
 
         /*search css*/
         .search-box {display: none;}
-
-        
-        
         /*home css*/
+        body{width:1920px; overflow:hidden;}
         .explanation{position:absolute; top:0; left:0; width:100%; height:882px;
         background-image: url("img/home/ham.jpg"); background-size:cover;}
         .main-exhibition{position:absolute; left:160px;top:280px;z-index:1;
@@ -119,13 +123,22 @@
         .buttons a{display:inline-block; width:232px; height:66px;
                     box-sizing:border-box;border:1px solid #fff;opacity:0.4;border-radius:6px; margin-right:20px;
                     font-size:24px; font-weight:400;color:#fff; line-height:66px;text-align:center;}
-        .gradient-box{background: radial-gradient(90.22% 90.22% at 100% 0%, rgba(29, 29, 29, 0.0001) 0%, #1D1D1D 100%);    width: 100%;
-    height: 100vh;
+        .gradient-box{background: radial-gradient(90.22% 90.22% at 100% 0%, rgba(29, 29, 29, 0.0001) 0%, #1D1D1D 100%); width: 100%;
+    height: 1080px;
     position: absolute;
     top: 0;
     left: 0;}
-        .carousel{position:absolute;width:100%; left:0; bottom:0; height:50px;}
+        .carousel{position:absolute;left:160px; top:882px; overflow:hidden; height:184px;width:1760px; overflow:hidden;}
+        .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
+        .item-box{width: auto; height:225px; display:flex; flex-wrap:nowrap; }
+        .item{float:left; margin-right:20px;background-size: cover;}
+        .item a{display:inline-block; width:400px; }
     </style>
+
+    <script>
+    
+    </script>
+
 
 </head>
 <body>
@@ -168,7 +181,7 @@
     </header>
     <article>
         <section class="explanation"> 
-            <div class="main-exhibition">
+            <div class="main-exhibition" style="display:none">
                 <p class="title1">놓쳐서는 안 될 이 전시</p>
                  <p class="title2">영화에서 만나는 명화들</p>
                  <p class="title3">파트론 에디터</p>
@@ -197,7 +210,16 @@
              <div class="gradient-box"></div>
              </section>
              <section class="carousel">
-                 
+                 <div class="play-history">
+                     <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
+                     <ul class="item-box">
+                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                     </ul>
+                 </div>
              </section>
     
     </article>
