@@ -1,0 +1,63 @@
+.search-box {display: none;}
+
+.search-area {
+    width: 1000px;
+    height: 78px;
+    margin-bottom: 56px;
+}
+
+.search-area a,input {
+    font-size: 56px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.cate-guide {
+    width: 500px;
+    height: 34px;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    color: white;
+    opacity: 65%;
+    margin-bottom: 36px;
+}
+
+/*임시이미지*/
+.cate li {
+    float: left;
+    width: 400px;
+    height: 255px;
+}
+
+.cate li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.item a {
+    width: 400px;
+    height: 255px;
+    display: block;
+    opacity: 0.3;
+    border-radius: 6px;
+}
+
+/*.item a.on{*/
+/*    border:5px solid red;*/
+/*}*/
+
+.item {
+    position: relative;
+}
+
+.item span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: white;
+}
