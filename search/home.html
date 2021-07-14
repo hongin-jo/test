@@ -74,7 +74,7 @@
             background-size: cover;}
         
         
-        ==========조홍인 추가=============
+/*        ==========조홍인 추가=============*/
          .gradient-box{background: radial-gradient(90.22% 90.22% at 100% 0%, rgba(29, 29, 29, 0.0001) 0%, #1D1D1D 100%);    width: 100%;
     height: 100vh;
     position: absolute;
@@ -91,12 +91,20 @@
         li:focus {outline: none;}
         li a:focus{outline:none;}
         
-        .menu:focus{background-color:red;}
+        /*헤더 디자인 변화 */
+        .menu.active{width:360px;}
+        .menu a.active{display: inline-block;width: 320px;height: 58px;
+        border-radius: 6px; position:relative; background-color:aliceblue;}
+        h1.active{width:216px; height:40px; margin-bottom:144px;}
+        .icon-logo.active{width:216px; height:40px; background-image:url("img/patron-logo-big.png");}
+        .menu li{position:relative;}
+/*        .menu-text{position:absolute;  top:50%; transform:translateY(-50%); font-weight:700; color:#fff; font-size:24px;opacity:0.65;}*/
+        .explanation.active{left:256px;}
+        .carousel.active{left:416px;}
         
         
         
-        
-        
+    
         /*search css*/
         .search-box {display: none;}
         /*home css*/
@@ -153,24 +161,28 @@
 <body>
 
     <header>
-        <div class="menu">
-            <h1>
-                <i class="icon-logo"></i>
+        <div class="menu active">
+            <h1 class="active">
+                <i class="icon-logo active"></i>
             </h1>
+            
             <ul class="lnb">
                 <li>
-                    <a href="/home">
-                        <i class="icon-home"></i>
+                    <a href="/home" class="active">
+                        <i class="icon-home active"></i>
+                        <span class="menu-text">홈</span>
                     </a>
                 </li>
                 <li>
                     <a href="/storage">
                         <i class="icon-storage"></i>
+                        <span class="menu-text">보관함</span>
                     </a>
                 </li>
                 <li>
                     <a href="/search">
                         <i class="icon-search"></i>
+                        <span  class="menu-text">검색</span>
                     </a>
                 </li>
             </ul>
@@ -178,18 +190,20 @@
                 <li>
                     <a href="/setting">
                         <i class="icon-setting"></i>
+                        <span class="menu-text">설정</span>
                     </a>
                 </li>
                 <li>
                     <a href="/exit">
                         <i class="icon-exit"></i>
+                        <span class="menu-text">나가기</span>
                     </a>
                 </li>
             </ul>
         </div>
     </header>
     <article>
-        <section class="explanation"> 
+        <section class="explanation active"> 
             <div class="main-exhibition" style="">
                 <p class="title1">놓쳐서는 안 될 이 전시</p>
                  <p class="title2">영화에서 만나는 명화들</p>
@@ -218,7 +232,7 @@
              </div>
              <div class="gradient-box"></div>
              </section>
-             <section class="carousel">
+             <section class="carousel active">
                  <div class="play-history">
                      <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
                     <div class="item-container">
@@ -257,6 +271,15 @@
         })
     }
      moveItem('.item a','.item-container', 420);
+     
+//            $('menu a').on({
+//        focus : function(){
+//           $('.menu').addClass('active');
+//        },
+//        blur : function(){
+//           $('.menu').removeClass('active');
+//            }
+//        })
     
     </script>
 
