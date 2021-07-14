@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />-->
@@ -21,7 +22,7 @@
   <script src="./js/prefixed.min.js" type="text/javascript"></script>
 
   <!--    <script>-->
-  <!--        // <![CDATA[--> ./../../
+  <!--        // <![CDATA[-->
   <!--        try {-->
   <!--            window.addEventListener('load', function(){-->
   <!--                setTimeout(scrollTo, 0, 0, 1);-->
@@ -49,118 +50,188 @@
 
 
     /*reset 해야할 것*/
-    body{padding:0; margin:0; position: relative; font-family: "Noto Sans KR";}
-    h1 { margin: 0;}
-    i{font-style:normal;}
-    li {list-style: none;}
-    ul {padding-left: 0; margin: 0;}
-    a { text-decoration: none;}
+    body {
+      padding: 0;
+      margin: 0;
+      position: relative;
+      font-family: "Noto Sans KR";
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    i {
+      font-style: normal;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    ul {
+      padding-left: 0;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    input {
+      padding: 0;
+    }
+
     /*common.css*/
-    .menu{width:104px; height:100vh; position:fixed; left:0; top:0; padding: 115px 0 0 32px; box-sizing: border-box; background-color: #1d1d1d;}
-    article{position:absolute; left:0; top:0; width: 100%; height: 100vh; z-index: -1; background-color: #1d1d1d;}
-    .contents{width:auto; background-color: #1d1d1d; position: absolute; left:104px; padding: 88px 0 0 56px;}
-    .lnb { margin-bottom: 400px; box-sizing: border-box; height: 160px;}
-    .lnb li {margin-bottom: 24px;}
-    .lnb li:last-of-type{margin-bottom: 0;}
-    .icon-logo{background-image: url("img/logo_symbol@2x.png"); width: 40px; height: 24px;    display: block;
-      background-size: cover; margin-bottom: 174px;}
-    .icon-home{background-image: url("img/icon-Home.png"); width: 40px; height: 40px;    display: block;
-      background-size: cover;}
-    .icon-storage{background-image: url("img/icon_storage.png"); width: 40px; height: 40px;    display: block;
-      background-size: cover;}
-    .icon-search{background-image: url("img/icon_search.png"); width: 40px; height: 40px;    display: block;
-      background-size: cover;}
-    .icon-setting{background-image: url("img/icon_settiing.png"); width: 40px; height: 40px;    display: block;
-      background-size: cover;}
-    .icon-exit{background-image:url("img/icon_exit.png"); width: 40px; height: 40px;    display: block;
-      background-size: cover;}
-    .item{
+    .menu {
+      width: 104px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 115px 0 0 32px;
+      box-sizing: border-box;
+      background-color: #1d1d1d;
+    }
+
+    article {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      background-color: #1d1d1d;
+    }
+
+    .contents {
+      width: auto;
+      background-color: #1d1d1d;
+      position: absolute;
+      left: 104px;
+      padding: 88px 0 0 56px;
+    }
+
+    .lnb {
+      margin-bottom: 400px;
+      box-sizing: border-box;
+      height: 160px;
+    }
+
+    .lnb li {
+      margin-bottom: 24px;
+    }
+
+    .lnb li:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .icon-logo {
+      background-image: url("img/logo_symbol@2x.png");
+      width: 40px;
+      height: 24px;
+      display: block;
+      background-size: cover;
+      margin-bottom: 174px;
+    }
+
+    .icon-back {
+      background-image: url("img/icon_goback.png");
+      width: 80px;
+      height: 80px;
+      display: block;
+      background-size: cover;
+    }
+
+    .icon-home {
+      background-image: url("img/icon-Home.png");
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-size: cover;
+    }
+
+    .icon-storage {
+      background-image: url("img/icon_storage.png");
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-size: cover;
+    }
+
+    .icon-search {
+      background-image: url("img/icon_search.png");
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-size: cover;
+    }
+
+    .icon-setting {
+      background-image: url("img/icon_settiing.png");
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-size: cover;
+    }
+
+    .icon-exit {
+      background-image: url("img/icon_exit.png");
+      width: 40px;
+      height: 40px;
+      display: block;
+      background-size: cover;
+    }
+
+    .item {
       width: 400px;
       height: 255px;
       display: block;
       border-radius: 6px;
     }
 
+    p {
+      margin: 0;
+    }
   </style>
 
 </head>
+
 <body>
 
-<header>
-  <div class="menu">
-    <h1>
-      <i class="icon-logo"></i>
-    </h1>
-    <ul class="lnb">
-      <li>
-        <a href="/home">
-          <i class="icon-home"></i>
-        </a>
-      </li>
-      <li>
-        <a href="/storage">
-          <i class="icon-storage"></i>
-        </a>
-      </li>
-      <li>
-        <a href="/search">
-          <i class="icon-search"></i>
-        </a>
-      </li>
-    </ul>
-    <ul class="gnb">
-      <li>
-        <a href="/setting">
-          <i class="icon-setting"></i>
-        </a>
-      </li>
-      <li>
-        <a href="/exit">
-          <i class="icon-exit"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-</header>
-
-<article>
-  <div class="contents">
-
-    <div class="search-area">
-      <a href="" class="search-guide">
-        확인키를 눌러 정보를 검색해보세요
-      </a>
-      <input type="text" class="search-box" placeholder="어떤 예술을 찾으시나요?">
+  <header>
+    <div class="menu-back">
+      <h1>
+        <i class="icon-back"></i>
+      </h1>
     </div>
+  </header>
 
-    <div class="cate-guide">
-      <span>카테고리로 찾아보세요</span>
+  <article>
+    <div class="contents">
+
+      <div class="search-area on">
+        <!-- <a href="" class="search-guide">
+            확인키를 눌러 정보를 검색해보세요
+          </a> -->
+        <input type="text" class="search-box on" title="어떤 예술을 찾으시나요?" placeholder="어떤 예술을 찾으시나요?">
+      </div>
+
+      <div class="search-key">
+        <p>최근 검색어</p>
+        <ul class="search-recent">
+          <li><a href="javascript:void(0)">박서보</a></li>
+          <li><a href="javascript:void(0)">현대미술</a></li>
+          <li><a href="javascript:void(0)">레오나르도 다 빈치</a></li>
+          <li><a href="javascript:void(0)">dream</a></li>
+          <li><a href="javascript:void(0)">나는 달린다</a></li>
+        </ul>
+      </div>
+
     </div>
-
-    <div class="cate-container">
-      <ul class="cate">
-        <li class="item">
-          <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
-          <span>서양화</span>
-        </li>
-        <li class="item">
-          <a href="javascript:void(0)" style='background-image: url("mone2.jpg")'></a>
-          <span>동양화</span>
-        </li>
-        <li class="item">
-          <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
-          <span>미디어아트</span>
-        </li>
-        <li class="item">
-          <a href="javascript:void(0)" style='background-image: url("mone2.jpg")'></a>
-          <span>입체미술</span>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-</article>
+  </article>
 
 
 </body>
+
 </html>

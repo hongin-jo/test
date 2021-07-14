@@ -1,17 +1,54 @@
-.search-box {display: none;}
+/****서치 뒤로가기 헤더****/
+.menu-back {
+    width: 104px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 88px 0 0 24px;
+    box-sizing: border-box;
+    background-color: #1d1d1d;
+}
 
+.search-box {display: none;} /*js클릭시 show변경*/
+
+.search-box.on {
+    display: block;
+    width: 1000px;
+    height: 78px;
+    border: none;
+    background-color: transparent;
+    /* margin-top: 4px;
+    margin-left: -7px; */
+    caret-color: #2841FA;
+}
+ 
 .search-area {
     width: 1000px;
     height: 78px;
     margin-bottom: 56px;
 }
 
-.search-area a,input {
+.search-area.on {
+    width: 1000px;
+    height: 78px;
+    margin-bottom: 40px;
+}
+
+.search-area a, .search-box {
     font-size: 56px;
     font-weight: 700;
     color: white;
     letter-spacing: -0.5px;
 }
+
+.search-box::placeholder {
+    font-size: 56px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
 
 .cate-guide {
     width: 500px;
@@ -22,6 +59,41 @@
     color: white;
     opacity: 65%;
     margin-bottom: 36px;
+}
+
+.cate-container {
+    display: flex;
+    position: relative;
+}
+
+.cate-container #slides {
+    display: flex;
+    flex-wrap: nowrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-out;
+}
+
+
+.search-key p {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    color: white;
+    opacity: 65%;
+    margin-bottom: 40px;
+}
+
+.search-recent a {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    color: white;
+}
+
+.search-recent li:not(:last-child) {
+    margin-bottom: 20px;
 }
 
 /*임시이미지*/
@@ -60,4 +132,160 @@
     font-weight: 700;
     letter-spacing: -0.3px;
     color: white;
+}
+
+
+/****검색결과****/
+.result-area {
+    width: 1000px;
+    height: 78px;
+    margin-bottom: 68px;
+}
+
+.result-area p{
+    font-size: 56px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.artist-container {
+    width: 812px;
+    height: 300px;
+}
+
+.artist-img {
+    width: 216px;
+    height: 300px;
+    background-color: thistle;
+    float: left;
+    margin-right: 40px;
+    border-radius: 6px;
+}
+
+.artist-container span {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.3px;
+}
+
+.artist-container p {
+    height: 102px;
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: -0.3px;
+    margin:8px 0 36px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.artist-btn {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.3px;
+    border-radius: 6px;
+    border: 1px solid white;
+    opacity: 40%;
+    padding: 22px 33px;
+}
+
+.artist-btn:hover {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.3px;
+    background-color: #2841FA;
+    border-radius: 6px;
+    border: none;
+    opacity: 100%;
+    padding: 22px 33px;
+}
+
+.art-slides {
+    position: relative;
+    width: 1680px;
+    margin-top: 108px;
+    overflow: hidden;
+}
+
+.slide {
+    position: relative;
+}
+
+.slide .art-item {
+    float: left;
+}
+
+.slide li:not(:last-child) {
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+.art-item {
+    position: relative;
+}
+
+.art-item span {
+    letter-spacing: -0.3px;
+    color: white;
+}
+
+.art-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    height: auto;
+    position: absolute;
+    bottom: 58px;
+    left: 20px;
+    width: 320px;
+    height: 34px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+.art-artist {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    height: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 320px;
+    height: 34px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+
+.art-gradbox {
+    width: 400px;
+    height: 255px;
+    border-radius: 6px;
+}
+
+.art-item a{
+    position: relative;
+    width: 400px;
+    height: 255px;
+    display: block;
+    border-radius: 6px;
+}
+
+.art-grad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 255px;
+    border-radius: 6px;
+    background-image: linear-gradient(to bottom, rgba(29, 29, 29, 0) 50%, #1d1d1d 99.93%);
 }

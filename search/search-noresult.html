@@ -177,6 +177,28 @@
             display: block;
             border-radius: 6px;
         }
+
+
+        /**첫번째 테두리 고정 영역**/
+        .fix-area {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .fix-box {
+            position: absolute;
+            left: -4px;
+            top: -4px;
+            border: 4px solid white;
+            width: 400px;
+            height: 255px;
+            border-radius: 10px;
+            box-sizing: content-box;
+        }
+
+        
+
     </style>
 
 </head>
@@ -225,17 +247,23 @@
 
             <div class="search-area">
                 <a href="" class="search-guide">
-                    확인키를 눌러 정보를 검색해보세요
+                    '들라클루아'에 대한 검색결과가 없습니다
                 </a>
-                <input type="text" class="search-box" placeholder="어떤 예술을 찾으시나요?">
             </div>
 
             <div class="cate-guide">
-                <span>카테고리로 찾아보세요</span>
+                <span>이런 검색어는 어떠세요?</span>
+            </div>
+
+            <!--첫번째 테두리 고정 영역-->
+            <div class="fix-area">
+                <div class="fix-box">
+
+                </div>
             </div>
 
             <div class="cate-container">
-                <ul class="cate">
+                <ul id="slides" class="cate">
                     <li class="item">
                         <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
                         <span>서양화</span>
@@ -244,14 +272,18 @@
                         <a href="javascript:void(0)" style='background-image: url("mone2.jpg")'></a>
                         <span>동양화</span>
                     </li>
-                    <!-- <li class="item">
+                    <li class="item">
                         <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
                         <span>미디어아트</span>
                     </li>
                     <li class="item">
                         <a href="javascript:void(0)" style='background-image: url("mone2.jpg")'></a>
                         <span>입체미술</span>
-                    </li> -->
+                    </li>
+                    <li class="item">
+                        <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
+                        <span>비디오아트</span>
+                    </li>
                 </ul>
             </div>
 
@@ -262,20 +294,21 @@
 </body>
 
 <script>
-    //검색창에 엔터 이벤트 발생시
-    $(".search-area a").on({
-        enter : function(){
-            console.log("엔터이벤트");
 
-            // var num = $(this).parents('.art-item').index();
-            // var num2 = num%5
-            // var left = num*420
-            // // $(this).addClass('active');
-            // $(container).css('left',left);
-        }
-    })
+    //테두리박스 고정, 이미지 움직임
+    var slides = document.getElementById("slides");
+    var slide = document.getElementsByClassName("item");
+    
+    //현재의 순서
+    var currentIdx = 0;
+
+    //마지막 요소 구분용 슬라이드 개수 지정
+    var slideCount = slide.length;
+
+    //이전버튼, 다음버튼 ?
     
 
+    console.log("확인용");
 
 </script>
 
