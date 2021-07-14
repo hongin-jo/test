@@ -69,7 +69,7 @@
         .icon-search{background-image: url("img/icon_search.png"); width: 40px; height: 40px;    display: block;
             background-size: cover;}
         .icon-setting{background-image: url("img/icon_settiing.png"); width: 40px; height: 40px;    display: block;
-            background-size: cover;}
+            background-size: cover;margin-bottom:40px;}
         .icon-exit{background-image:url("img/icon_exit.png"); width: 40px; height: 40px;    display: block;
             background-size: cover;}
         
@@ -88,11 +88,19 @@
             display: block;
             border-radius: 6px;
         }   
-
+        li:focus {outline: none;}
+        li a:focus{outline:none;}
+        
+        .menu:focus{background-color:red;}
+        
+        
+        
+        
+        
         /*search css*/
         .search-box {display: none;}
         /*home css*/
-        body{width:1920px; overflow:hidden;}
+        body{width:100%; /*overflow:hidden;*/}
         .explanation{position:absolute; top:0; left:0; width:100%; height:882px;
         background-image: url("img/home/ham.jpg"); background-size:cover;}
         .main-exhibition{position:absolute; left:160px;top:280px;z-index:1;
@@ -128,16 +136,17 @@
     position: absolute;
     top: 0;
     left: 0;}
-        .carousel{position:absolute;left:160px; top:882px; overflow:hidden; height:184px;width:1760px; overflow:hidden;}
+        .carousel{position:absolute;left:160px; top:882px; height:184px;width:1760px; /*overflow:hidden;*/}
         .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
         .item-box{width: auto; height:225px; display:flex; flex-wrap:nowrap; }
         .item{float:left; margin-right:20px;background-size: cover;}
-        .item a{display:inline-block; width:400px; }
+        .item a{display:inline-block; width:400px; width: 400px;height: 255px;border-radius: 6px; }
+        .item a.active{border:4px solid #fff; box-sizing:border-box}
+        .play-history{position:relative;}
+        .item-container{position:absolute; left:0; top:65px;transition-duration: 1s;}
     </style>
-
-    <script>
     
-    </script>
+   
 
 
 </head>
@@ -181,7 +190,7 @@
     </header>
     <article>
         <section class="explanation"> 
-            <div class="main-exhibition" style="display:none">
+            <div class="main-exhibition" style="">
                 <p class="title1">놓쳐서는 안 될 이 전시</p>
                  <p class="title2">영화에서 만나는 명화들</p>
                  <p class="title3">파트론 에디터</p>
@@ -212,18 +221,44 @@
              <section class="carousel">
                  <div class="play-history">
                      <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
-                     <ul class="item-box">
-                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                         <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                     </ul>
+                    <div class="item-container">
+                          <ul class="item-box">
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                         </ul>
+                     </div>
                  </div>
              </section>
     
     </article>
-
+ <script>
+     //item이 왼쪽으로 이동하는 함수 moveItem
+     //item : 테두리가 생길 태그 container : 그 태그를 둘러싸고있는 position:absolute인 박스 
+     //length: 박스의 가로 넓이 + 마진값
+     function moveItem(item, container, length){
+        $(item).on({
+        focus : function(){
+            var num=$(this).parent().index();
+            var left = num*-length
+            $(this).addClass('active');
+            $(container).css('left',left);
+            if(num==0){
+                  $(container).css('left',0);
+            }if(num==1){
+                 $(container).css('left',-length);
+            }     
+        },
+        blur : function(){
+           $(this).removeClass('active');
+            }
+        })
+    }
+     moveItem('.item a','.item-container', 420);
+    
+    </script>
 
 </body>
 </html>
