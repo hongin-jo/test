@@ -112,7 +112,7 @@
         .search-box {display: none;}
         
         /*home css*/
-        body{width:100%; /*overflow:hidden;*/}
+        body{width:100%; overflow:hidden;}
         .explanation{position:absolute; top:0; left:0; width:100%; height:882px;
         background-image: url("img/home/ham.jpg"); background-size:cover; background-position-x: center;}
         .main-exhibition{position:absolute; left:160px;top:280px;z-index:1;
@@ -146,14 +146,16 @@
                     box-sizing:border-box;border:1px solid #fff;opacity:0.4;border-radius:6px; margin-right:20px;
                     font-size:24px; font-weight:400;color:#fff; line-height:66px;text-align:center;}
         .gradient-box{background: radial-gradient(90.22% 90.22% at 100% 0%, rgba(29, 29, 29, 0.0001) 0%, #1D1D1D 100%); width: 100%;
-    height: 4000px;
+    height: 1080px;
     position: absolute;
     top: 0;
     left: 0;}
         .btn-play a.active, .btn-info a.active{background-color:#2841fa; border:none; opacity:1;}
-        .carousel{position:absolute;left:160px; top:882px; height:184px;width:1920px; /*overflow:hidden;*/transition-duration: 1s;}
+        .carousel{position:absolute;left:160px; top:882px; height:184px;width:1920px; overflow:hidden;transition-duration: 1s;
+        }
         .carousel-container{position:absolute; top:0; left:0; transition-duration: 1s;}
-        .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
+        .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;     position: relative;   display: block;}
+        .carousel p{height:30px;}
         .item-box{width: auto; height:auto; display:flex; flex-wrap:nowrap; }
         .item{float:left; margin-right:20px;background-size: cover;}
         .item a{display:inline-block; width:400px; width: 400px;height: 255px;border-radius: 6px; }
@@ -268,9 +270,9 @@
              </section>
              <section class="carousel">
                <div class="carousel-container">
-                           <div class="play-history">
-                         <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
-                        <div class="item-container clearfix">
+                       <div class="play-history">
+                            <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
+                            <div class="item-container">
                               <ul class="item-box">
                                  <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
                                  <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
@@ -278,7 +280,7 @@
                                  <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
                                  <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
                              </ul>
-                         </div>
+                            </div>
                      </div>
                      <div class="new-artworks">
                            <p class="title4">새롭게 선보이는 작품</p>
@@ -409,64 +411,79 @@
             }
         })
      
-//      //000님이 감상하신 작품이 포커스 됐을 때 main-exhibition 이 사라지고 새롭게 선보이는 작품이 보인다. carousel의 top이 611px로 이동하고 높이는 480px로 변한다. 그리고 바로 아래의 div(new-artworks)는 opacity 0.4가 된다.
-//     var carouselTop = 0; 
-//     var smallBoxHeight = 360; 
-//     var bigBoxHeight= 825; 
-//     
-//      $('.play-history a').on({
+      //000님이 감상하신 작품이 포커스 됐을 때 main-exhibition 이 사라지고 새롭게 선보이는 작품이 보인다. carousel의 top이 611px로 이동하고 높이는 480px로 변한다. 그리고 바로 아래의 div(new-artworks)는 opacity 0.4가 된다.
+     var carouselTop = 0; 
+//     var smallBoxHeight = 107;//360 
+     var bigBoxHeight= 825; 
+     
+     
+     
+     
+      $('.play-history a').on({
+        focus : function(e){
+            $('.main-exhibition').css('display','none');
+            console.log($('.play-history li').eq(0).find('a').offset()['top'])
+            $('.new-artworks').css('opacity',0.4);
+            $('.carousel').css('top',611).css('height',480);
+
+        },
+        blur : function(){
+                //opacity가 돌아온다
+              $('.new-artworks').css('opacity',1);
+            }
+        })
+//                  $('.title4').on({
 //        focus : function(){
-//            $('.main-exhibition').css('display','none');
-//            $('.carousel').css('top',611).css('height',480);
-//            $('.new-artworks').css('opacity',0.4);
-//        },
-//        blur : function(){
-//                //opacity가 돌아온다
-//              $('.new-artworks').css('opacity',1);
-//            }
-//        })
-//     
-//     //새롭게 선보이는 작품이 포커스 됐을 때 carousel-conatiner의 top이 360px 올라간다. .theme2는 opacity가 0.4가 된다 
-//     $('.new-artworks a').on({
-//        focus : function(){
-//            carouselTop = smallBoxHeight;
-//            $('.carousel-container').css('top',carouselTop);
-//            $('.theme2').css('opacity',0.4);
-//        },
-//        blur : function(){
-//               //opacity가 돌아온다
-//              $('.theme2').css('opacity',1);
-//            }
-//        })
-//     
-//     
-//     //theme2가 선택됐을 때 carousel-container의 top이 360px 더 올라간다 
-//       $('.theme2 a').on({
-//        focus : function(){
-//            carouselTop = smallBoxHeight*2;
-//            $('.carousel-container').css('top',carouselTop);
-//            $('.must-exhibition').css('opacity',0.4);
-//        },
-//        blur : function(){
-//                 //opacity가 돌아온다
-//              $('.must-exhibition').css('opacity',1);
-//            }
-//        })
-//     
-//     //전시가 선택됐을 때 carousel-container의 top이 360px 더 올라간다
-//        $('.must-exhibition a').on({
-//        focus : function(){
-//            carouselTop = smallBoxHeight*3;
-//            $('.carousel-container').css('top',carouselTop);
-//             $('.theme3').css('opacity',0.4);
-//        },
-//        blur : function(){
-//                  //opacity가 돌아온다
-//              $('.theme3').css('opacity',1);
-//            }
 //            
+//        },
+//        blur : function(){
+//           
+//            }
 //        })
 //     
+     //새롭게 선보이는 작품이 포커스 됐을 때 carousel-conatiner의 top이 360px 올라간다. .theme2는 opacity가 0.4가 된다 
+     $('.new-artworks a').on({
+        focus : function(){ 
+            carouselTop = -107; 
+            $('.carousel-container').css('top',carouselTop);
+            $('.theme2').css('opacity',0.4);
+        },
+        blur : function(){
+               //opacity가 돌아온다
+              $('.theme2').css('opacity',1);
+            }
+        })
+     
+     
+     
+     
+     //theme2가 선택됐을 때 carousel-container의 top이 360px 더 올라간다 
+       $('.theme2 a').on({
+        focus : function(){
+            carouselTop = -272;
+            $('.carousel-container').css('top',carouselTop);
+            $('.must-exhibition').css('opacity',0.4);
+        },
+        blur : function(){
+                 //opacity가 돌아온다
+              $('.must-exhibition').css('opacity',1);
+            }
+        })
+     
+     //전시가 선택됐을 때 carousel-container의 top이 360px 더 올라간다
+        $('.must-exhibition a').on({
+        focus : function(){
+//            carouselTop = smallBoxHeight*3;
+            $('.carousel-container').css('top',carouselTop);
+             $('.theme3').css('opacity',0.4);
+        },
+        blur : function(){
+                  //opacity가 돌아온다
+              $('.theme3').css('opacity',1);
+            }
+            
+        })
+     
 //     //theme3가 선택됐을 때 carousel-container의 top이 825px 더 올라간다 
 //       $('.theme3 a').on({
 //        focus : function(){
@@ -506,6 +523,18 @@
 //            }
 //        })
 //     
+
+//$('.play-history').on('scroll touchmove mousewheel', function(e){
+//
+//e.preventDefault();
+//
+//e.stopPropagation(); 
+//
+//return false;
+//
+//})
+
+
     </script>
 
 </body>
