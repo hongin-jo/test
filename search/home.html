@@ -55,8 +55,8 @@
         ul {padding-left: 0; margin: 0;}
         /*common.css*/
         .menu{width:104px; height:100vh; position:fixed; left:0; top:0; padding: 115px 0 0 32px; box-sizing: border-box; background-color: #1d1d1d;}
-        article{position:absolute; left:0; top:0; width: 100%; height: 100vh; z-index: -1; background-color: cornflowerblue;}
-        .contents{width:auto; height:100vh;background-color:mediumpurple; position: absolute; left:104px; padding: 88px 0 0 56px;}
+        article{position:absolute; left:0; top:0; width: 100%; height: 100vh; z-index: -1; }
+        .contents{width:auto; height:100vh;position: absolute; left:104px; padding: 88px 0 0 56px;}
         .lnb { margin-bottom: 400px; box-sizing: border-box; height: 160px;}
         .lnb li {margin-bottom: 24px;}
         .lnb li:last-of-type{margin-bottom: 0;}
@@ -114,7 +114,7 @@
         /*home css*/
         body{width:100%; /*overflow:hidden;*/}
         .explanation{position:absolute; top:0; left:0; width:100%; height:882px;
-        background-image: url("img/home/ham.jpg"); background-size:cover;}
+        background-image: url("img/home/ham.jpg"); background-size:cover; background-position-x: center;}
         .main-exhibition{position:absolute; left:160px;top:280px;z-index:1;
         color:white;}
         .title1{font-size:28px; font-weight:700; opacity: 0.4;
@@ -151,12 +151,15 @@
     top: 0;
     left: 0;}
         .btn-play a.active, .btn-info a.active{background-color:#2841fa; border:none; opacity:1;}
-        .carousel{position:absolute;left:160px; top:882px; height:184px;width:1760px; /*overflow:hidden;*/}
+        .carousel{position:absolute;left:160px; top:882px; height:184px;width:1920px; /*overflow:hidden;*/transition-duration: 1s;}
+        .carousel-container{position:absolute; top:0; left:0; transition-duration: 1s;}
         .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
         .item-box{width: auto; height:auto; display:flex; flex-wrap:nowrap; }
         .item{float:left; margin-right:20px;background-size: cover;}
         .item a{display:inline-block; width:400px; width: 400px;height: 255px;border-radius: 6px; }
         .item a.active{border:4px solid #fff; box-sizing:border-box}
+        .must-exhibition .item a.active{height:720px;border:4px solid #fff; box-sizing:border-box}
+        .artist-list .item a.active{width:216px; height:300px;border:4px solid #fff; box-sizing:border-box }
 /*        감상 목록*/
         .play-history{position:relative;}
         .item-container{position:relative; left:0; margin-top:20px;transition-duration: 1s;}
@@ -264,86 +267,88 @@
              <div class="gradient-box"></div>
              </section>
              <section class="carousel">
-                 <div class="play-history">
-                     <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
-                    <div class="item-container clearfix">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+               <div class="carousel-container">
+                           <div class="play-history">
+                         <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
+                        <div class="item-container clearfix">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                 <div class="new-artworks">
-                       <p class="title4">새롭게 선보이는 작품</p>
-                    <div class="item-container">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+                     <div class="new-artworks">
+                           <p class="title4">새롭게 선보이는 작품</p>
+                        <div class="item-container">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                       <div class="theme2">
-                       <p class="title4">여름방학</p>
-                    <div class="item-container">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+                           <div class="theme2">
+                           <p class="title4">여름방학</p>
+                        <div class="item-container">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                      <div class="must-exhibition">
-                       <p class="title4">어머 이건 꼭 봐야할 전시</p>
-                    <div class="item-container">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+                          <div class="must-exhibition">
+                           <p class="title4">어머 이건 꼭 봐야할 전시</p>
+                        <div class="item-container">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                     <div class="theme3">
-                       <p class="title4">존재감 뿜뿜 공간을 살려주는 작품</p>
-                    <div class="item-container">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+                         <div class="theme3">
+                           <p class="title4">존재감 뿜뿜 공간을 살려주는 작품</p>
+                        <div class="item-container">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
-                 </div>
-                    <div class="artist-list">
-                       <p class="title4">취향의 발견, 작가</p>
-                    <div class="item-container">
-                          <ul class="item-box">
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                            <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                            <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
-                         </ul>
+                        <div class="artist-list">
+                           <p class="title4">취향의 발견, 작가</p>
+                        <div class="item-container">
+                              <ul class="item-box">
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                 <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                                <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             </ul>
+                         </div>
                      </div>
+                     <a href="/search.html" class="btn-go-search">
+                         <i class="icon-search "></i><span class="search-guide-text">더 다양한 작품을 찾아보세요</span>
+                     </a>
                  </div>
-                 <a href="/search.html" class="btn-go-search">
-                     <i class="icon-search "></i><span class="search-guide-text">더 다양한 작품을 찾아보세요</span>
-                 </a>
              </section>
     
     </article>
@@ -370,6 +375,11 @@
         })
     }
      moveItem('.play-history .item a','.play-history .item-container', 420);
+    moveItem('.new-artworks .item a','.new-artworks .item-container', 420);
+    moveItem('.theme2 .item a','.theme2 .item-container', 420);
+    moveItem('.must-exhibition .item a','.must-exhibition .item-container', 420);
+    moveItem('.theme3 .item a','.theme3 .item-container', 420);
+    moveItem('.artist-list .item a','.artist-list .item-container', 420);
      
      //버튼 변화 함수
      function changeActive(button){
@@ -399,7 +409,103 @@
             }
         })
      
-      .btn-go-search .icon-search
+//      //000님이 감상하신 작품이 포커스 됐을 때 main-exhibition 이 사라지고 새롭게 선보이는 작품이 보인다. carousel의 top이 611px로 이동하고 높이는 480px로 변한다. 그리고 바로 아래의 div(new-artworks)는 opacity 0.4가 된다.
+//     var carouselTop = 0; 
+//     var smallBoxHeight = 360; 
+//     var bigBoxHeight= 825; 
+//     
+//      $('.play-history a').on({
+//        focus : function(){
+//            $('.main-exhibition').css('display','none');
+//            $('.carousel').css('top',611).css('height',480);
+//            $('.new-artworks').css('opacity',0.4);
+//        },
+//        blur : function(){
+//                //opacity가 돌아온다
+//              $('.new-artworks').css('opacity',1);
+//            }
+//        })
+//     
+//     //새롭게 선보이는 작품이 포커스 됐을 때 carousel-conatiner의 top이 360px 올라간다. .theme2는 opacity가 0.4가 된다 
+//     $('.new-artworks a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight;
+//            $('.carousel-container').css('top',carouselTop);
+//            $('.theme2').css('opacity',0.4);
+//        },
+//        blur : function(){
+//               //opacity가 돌아온다
+//              $('.theme2').css('opacity',1);
+//            }
+//        })
+//     
+//     
+//     //theme2가 선택됐을 때 carousel-container의 top이 360px 더 올라간다 
+//       $('.theme2 a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight*2;
+//            $('.carousel-container').css('top',carouselTop);
+//            $('.must-exhibition').css('opacity',0.4);
+//        },
+//        blur : function(){
+//                 //opacity가 돌아온다
+//              $('.must-exhibition').css('opacity',1);
+//            }
+//        })
+//     
+//     //전시가 선택됐을 때 carousel-container의 top이 360px 더 올라간다
+//        $('.must-exhibition a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight*3;
+//            $('.carousel-container').css('top',carouselTop);
+//             $('.theme3').css('opacity',0.4);
+//        },
+//        blur : function(){
+//                  //opacity가 돌아온다
+//              $('.theme3').css('opacity',1);
+//            }
+//            
+//        })
+//     
+//     //theme3가 선택됐을 때 carousel-container의 top이 825px 더 올라간다 
+//       $('.theme3 a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight*3 + bigBoxHeight;
+//            $('.carousel-container').css('top',carouselTop);
+//             $('.artist-list').css('opacity',0.4);
+//        },
+//        blur : function(){
+//                //opacity가 돌아온다
+//              $('.artist-list').css('opacity',1);
+//            }
+//        })
+//     
+//     
+//     //작가가 선택됐을 때 carousel-container의 top이 360px 더 올라간다
+//           $('.artist-list a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight*4 + bigBoxHeight;
+//            $('.carousel-container').css('top',carouselTop);
+//        },
+//        blur : function(){
+//                //
+//            }
+//        })
+//     
+//    //더 다양한 작품을 선택해보세요가 선택되었을 때 carousel자체가 top이 0이 되고, carousel-container의 top은 85px이 내려온다. 
+//        $('.btn-go-search a').on({
+//        focus : function(){
+//            carouselTop = smallBoxHeight*4 + bigBoxHeight - 85;
+//            $('.carousel').css('top',0);
+//            $('.carousel-container').css('top',carouselTop);
+//               $('.artist-list').css('opacity',0.4);
+//        },
+//        blur : function(){
+//               //opacity가 돌아온다
+//              $('.artist-list').css('opacity',1);
+//            }
+//        })
+//     
     </script>
 
 </body>
