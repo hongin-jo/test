@@ -91,6 +91,7 @@
         }   
         li:focus {outline: none;}
         li a:focus{outline:none;}
+        a:focus{outline:none;}
         .clearfix::after{content=''; clear:both; display:block;}
         
         /*헤더 디자인 변화 */
@@ -100,7 +101,7 @@
         h1.active{width:216px; height:40px; margin-bottom:144px;}
         .icon-logo.active{width:216px; height:40px; background-image:url("img/patron-logo-big.png");}
         .menu li{position:relative;}
-/*        .menu-text{position:absolute;  top:50%; transform:translateY(-50%); font-weight:700; color:#fff; font-size:24px;opacity:0.65;}*/
+        .menu-text{display:none;}
         .explanation.active{left:256px;}
         .carousel.active{left:416px;}
         
@@ -109,6 +110,7 @@
     
         /*search css*/
         .search-box {display: none;}
+        
         /*home css*/
         body{width:100%; /*overflow:hidden;*/}
         .explanation{position:absolute; top:0; left:0; width:100%; height:882px;
@@ -148,6 +150,7 @@
     position: absolute;
     top: 0;
     left: 0;}
+        .btn-play a.active, .btn-info a.active{background-color:#2841fa; border:none; opacity:1;}
         .carousel{position:absolute;left:160px; top:882px; height:184px;width:1760px; /*overflow:hidden;*/}
         .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
         .item-box{width: auto; height:auto; display:flex; flex-wrap:nowrap; }
@@ -187,15 +190,15 @@
 <body>
 
     <header>
-        <div class="menu active">
-            <h1 class="active">
-                <i class="icon-logo active"></i>
+        <div class="menu">
+            <h1 class="">
+                <i class="icon-logo"></i>
             </h1>
             
             <ul class="lnb">
                 <li>
-                    <a href="/home" class="active">
-                        <i class="icon-home active"></i>
+                    <a href="/home" class="">
+                        <i class="icon-home"></i>
                         <span class="menu-text">홈</span>
                     </a>
                 </li>
@@ -229,7 +232,7 @@
         </div>
     </header>
     <article>
-        <section class="explanation active"> 
+        <section class="explanation"> 
             <div class="main-exhibition" style="">
                 <p class="title1">놓쳐서는 안 될 이 전시</p>
                  <p class="title2">영화에서 만나는 명화들</p>
@@ -260,7 +263,7 @@
              </div>
              <div class="gradient-box"></div>
              </section>
-             <section class="carousel active">
+             <section class="carousel">
                  <div class="play-history">
                      <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
                     <div class="item-container clearfix">
@@ -368,7 +371,35 @@
     }
      moveItem('.play-history .item a','.play-history .item-container', 420);
      
-    
+     //버튼 변화 함수
+     function changeActive(button){
+            $(button).on({
+        focus : function(){
+            $(this).addClass('active');
+        },
+        blur : function(){
+           $(this).removeClass('active');
+            }
+        })
+         
+     }
+     
+     changeActive('.btn-play a');
+     changeActive('.btn-info a');
+
+     //더 다양한 작품을 만나보세요 버튼 변화
+        $('.btn-go-search').on({
+        focus : function(){
+            $(this).addClass('active');
+            $('.btn-go-search .icon-search').addClass('active');
+        },
+        blur : function(){
+           $(this).removeClass('active');
+            $('.btn-go-search .icon-search').removeClass('active');
+            }
+        })
+     
+      .btn-go-search .icon-search
     </script>
 
 </body>
