@@ -61,21 +61,6 @@
     margin-bottom: 36px;
 }
 
-.cate-container {
-    display: flex;
-    position: relative;
-}
-
-.cate-container #slides {
-    display: flex;
-    flex-wrap: nowrap;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: left 0.5s ease-out;
-}
-
-
 .search-key p {
     font-size: 22px;
     font-weight: 400;
@@ -96,14 +81,33 @@
     margin-bottom: 20px;
 }
 
-/*임시이미지*/
-.cate li {
+/*이미지*/
+.item-container {
+    display: flex;
+    position: relative;
+}
+
+.item-box {
+    display: flex;
+    flex-wrap: nowrap;
+    position: absolute;
+    width: auto;
+    height: auto;
+}
+
+.item {
+    position: relative;
+}
+
+.item-box li {
     float: left;
     width: 400px;
     height: 255px;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.cate li:not(:last-child) {
+.item-box li:not(:last-child) {
     margin-right: 20px;
 }
 
@@ -112,16 +116,18 @@
     height: 255px;
     display: block;
     opacity: 0.3;
-    border-radius: 6px;
+}
+
+.item.active {
+    border: 4px solid white;
+    box-sizing: content-box;
 }
 
 /*.item a.on{*/
 /*    border:5px solid red;*/
 /*}*/
 
-.item {
-    position: relative;
-}
+
 
 .item span {
     position: absolute;
