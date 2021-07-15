@@ -87,9 +87,11 @@
             height: 255px;
             display: block;
             border-radius: 6px;
+            background-position-x: center;
         }   
         li:focus {outline: none;}
         li a:focus{outline:none;}
+        .clearfix::after{content=''; clear:both; display:block;}
         
         /*헤더 디자인 변화 */
         .menu.active{width:360px;}
@@ -128,10 +130,12 @@
         margin-left:10px;vertical-align: text-bottom;}
         .artwork-count{display:inline-block;}
         .artwork-count>span{font-size:16px; font-weight:500; line-height:29px; }
-        .exhibition-detail{margin-top:20px; margin-bottom:60px; height:136px;
-        font-size:22px; font-weight:400; opacity:0.65; width:640px;}
-        .icon-play-active{background-image:url(img/home/Triangle.png); width:20px; height:16px; display:inline-block;    background-size: contain;
-    background-repeat: no-repeat;}
+        .exhibition-detail{margin-top:20px; margin-bottom:60px; max-height:136px;
+            font-size:22px; font-weight:400; opacity:0.65; width:640px;overflow:hidden;
+        display:-webkit-box; display:-ms-flexbox; display:box; 
+        vertical-align:top; text-overflow: ellipsis; word-break:break-all; 
+       -webkit-box-orient:vertical; -webkit-line-clamp:3 }
+        .icon-play-active{background-image:url(img/home/Triangle.png); width:20px; height:16px; display:inline-block;    background-size: contain;background-repeat: no-repeat; }
         .icon-info{background-image: url(img/home/icon_info_inactive.png); 
             width:24px; height:24px; display:inline-block;background-size: contain;
     background-repeat: no-repeat;}
@@ -140,18 +144,23 @@
                     box-sizing:border-box;border:1px solid #fff;opacity:0.4;border-radius:6px; margin-right:20px;
                     font-size:24px; font-weight:400;color:#fff; line-height:66px;text-align:center;}
         .gradient-box{background: radial-gradient(90.22% 90.22% at 100% 0%, rgba(29, 29, 29, 0.0001) 0%, #1D1D1D 100%); width: 100%;
-    height: 1080px;
+    height: 3000px;
     position: absolute;
     top: 0;
     left: 0;}
         .carousel{position:absolute;left:160px; top:882px; height:184px;width:1760px; /*overflow:hidden;*/}
         .title4{font-size:30px; font-weight:700; color:#fff;margin-bottom:20px;}
-        .item-box{width: auto; height:225px; display:flex; flex-wrap:nowrap; }
+        .item-box{width: auto; height:auto; display:flex; flex-wrap:nowrap; }
         .item{float:left; margin-right:20px;background-size: cover;}
         .item a{display:inline-block; width:400px; width: 400px;height: 255px;border-radius: 6px; }
         .item a.active{border:4px solid #fff; box-sizing:border-box}
+/*        감상 목록*/
         .play-history{position:relative;}
-        .item-container{position:absolute; left:0; top:65px;transition-duration: 1s;}
+        .item-container{position:relative; left:0; margin-top:20px;transition-duration: 1s;}
+        .new-artworks{position:relative;margin-top:40px;}
+/*        취향의 발견, 작가 */
+        .artist-list{margin-top:40px;}
+        .artist-list .item{width:216px; height:300px; margin-right:20px; }
     </style>
     
    
@@ -224,7 +233,9 @@
                       <i class="icon-frame"></i>
                       <span>600</span>점
                 </div>
-                 <p class="exhibition-detail">국립현대미술관과 덕수궁 관리소가 공동 추최하는 덕수궁-서울 야외프로젝트 : 기억된 미래는 고종황제의 서거와 3.1운동의 100주년을 맞아, 근대의 태동을 알렸던 대한제국 시기 미래 도시를 향한 꿈을 현대 건축가들의 시각으로 재해석한 전시이다.</p>
+                 <p class="exhibition-detail">
+                 국립현대미술관과 덕수궁 관리소가 공동 추최하는 덕수궁-서울 야외프로젝트 : 기억된 미래는 고종황제의 서거와 3.1운동의 100주년을 맞아, 근대의 태동을 알렸던 대한제국 시기 미래 도시를 향한 꿈을 현대 건축가들의 시각으로 재해석한 전시이다.국립현대미술관과 덕수궁 관리소가 공동 추최하는 덕수궁-서울 야외프로젝트 : 기억된 미래는 고종황제의 서거와 3.1운동의 100주년을 맞아, 근대의 태동을 알렸던 대한제국 시기 미래 도시를 향한 꿈을 현대 건축가들의 시각으로 재해석한 전시이다.
+                 </p>
                  <ul class="buttons">
                      <li class="btn-play"><a href="javascript:void(0)"><i class="icon-play-active"></i>감상하기</a></li>
                      <li class="btn-info"><a href="javascript:void(0)"><i class="icon-info"></i>전시 안내</a></li>
@@ -235,6 +246,18 @@
              <section class="carousel active">
                  <div class="play-history">
                      <p class="title4"><span class="user-name">유한솔</span>님이 감상하신 작품</p>
+                    <div class="item-container clearfix">
+                          <ul class="item-box">
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="new-artworks">
+                       <p class="title4">새롭게 선보이는 작품</p>
                     <div class="item-container">
                           <ul class="item-box">
                              <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
@@ -245,12 +268,29 @@
                          </ul>
                      </div>
                  </div>
+                    <div class="artist-list">
+                       <p class="title4">취향의 발견, 작가</p>
+                    <div class="item-container">
+                          <ul class="item-box">
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)"></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                            <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                             <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                            <li class="item" style=' background-image: url("img/home/ham.jpg")'><a href="javascript:void(0)" ></a></li>
+                         </ul>
+                     </div>
+                 </div>
              </section>
     
     </article>
  <script>
      //item이 왼쪽으로 이동하는 함수 moveItem
-     //item : 테두리가 생길 태그 container : 그 태그를 둘러싸고있는 position:absolute인 박스 
+     //item : 테두리가 생길 태그 container : 그 태그를 둘러싸고있는 position이 잡힌 박스 
      //length: 박스의 가로 넓이 + 마진값
      function moveItem(item, container, length){
         $(item).on({
@@ -270,16 +310,8 @@
             }
         })
     }
-     moveItem('.item a','.item-container', 420);
+     moveItem('.play-history .item a','.play-history .item-container', 420);
      
-//            $('menu a').on({
-//        focus : function(){
-//           $('.menu').addClass('active');
-//        },
-//        blur : function(){
-//           $('.menu').removeClass('active');
-//            }
-//        })
     
     </script>
 
