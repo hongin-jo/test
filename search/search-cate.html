@@ -177,6 +177,19 @@
             display: block;
             border-radius: 6px;
         }
+
+        a:focus {
+            outline: none;
+        }
+        .fake{
+            width: 1px !important;
+            height: 1px !important;
+            background-color: transparent;
+            opacity: 0%;
+        }
+        .fake.active{
+            border: none;
+        }
     </style>
 
 </head>
@@ -243,6 +256,9 @@
                         <a href="javascript:void(0)" style='background-image: url("mone2.jpg")'></a>
                         <span>동양화</span>
                     </li>
+                    <li>
+                        <a href="javascript:void(0)" class="fake"><span>fake</span></a>
+                    </li>
                     <!-- <li class="item">
                         <a href="javascript:void(0)" style='background-image: url("mone.jpg")'></a>
                         <span>미디어아트</span>
@@ -262,20 +278,79 @@
 
 <script>
     //검색창에 엔터 이벤트 발생시
-    $(".search-area a").on({
-        enter : function(){
-            console.log("엔터이벤트");
-
-            // var num = $(this).parents('.art-item').index();
-            // var num2 = num%5
-            // var left = num*420
-            // // $(this).addClass('active');
-            // $(container).css('left',left);
-        }
-    })
     
 
+    
+    //카테고리 좌우 테두리박스 이동
+    var lastCount = $(".item").length;
+    console.log("라스트카운트" + lastCount);
 
+    $(".item a").on("focus", function(){
+        $(this).parent().addClass('active');
+        
+        if($(':focus').hasClass('fake')){
+            console.log('fake');
+            $('.item-container').find('.item').eq(0).focus();
+        }
+    });
+    
+    $(".item a").on("blur", function(){
+        var idx = $(this).parent().index();
+        if(idx == lastCount-1){
+            $(this).parent().removeClass('active');
+            $('.item-container').find('.item').eq(0).find('a').focus();
+        } 
+        
+        $(this).parent().removeClass('active');
+    });
+    
+
+    //검색창 확인시 html 변화
+    $(".search-guide").on("focus",function(){
+        //console.log("focus"); 확인
+        $(".search-guide").keydown(function(event){
+            if(event.keyCode == '13'){
+                //console.log("엔터키"); 확인
+                $(".search-guide").hide();
+                $(".cate-guide").hide();
+                $("item-container").hide();
+
+                $("search-box").show();
+            }
+        });
+    });
+
+
+
+    // function moveItemBox(){
+    //     $(".item a").on({
+    //         focus: function () {
+    //             var idx = $(this).parent().index();
+    //             console.log(idx);
+    
+    //             $(this).parent().addClass('active');
+    
+    //             if($(':focus').hasClass('fake')){
+    //                 console.log('fake');
+    //                 $('.item-container').find('.item').eq(0).focus();
+    //             }
+    //         },
+    //         blur: function () {           
+    //             var idx = $(this).parent().index();
+    //             if(idx == lastCount-1){
+    //                 $(this).parent().removeClass('active');
+    //                 $('.item-container').find('.item').eq(0).find('a').focus();
+    //             } 
+    
+    //             $(this).parent().removeClass('active');
+    //         }
+    //     })
+    // };
+    
+    // moveItemBox();
+    
+    
+    
 </script>
 
 </html>
