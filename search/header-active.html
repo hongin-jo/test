@@ -55,24 +55,10 @@
         li {list-style: none;}
         ul {padding-left: 0; margin: 0;}
         /*common.css*/
-        .menu{width:104px; height:100vh; position:fixed; left:0; top:0; padding: 115px 0 0 40px; box-sizing: border-box; background-color: #1d1d1d;}
+        
         article{position:absolute; left:0; top:0; width: 100%; height: 100vh; z-index: -1; background-color: cornflowerblue;}
         .contents{width:auto; height:100vh;background-color:mediumpurple; position: absolute; left:104px; padding: 88px 0 0 56px;}
-        .lnb { margin-bottom: 400px; box-sizing: border-box; height: 160px;}
-        /* .lnb li {margin-bottom: 24px;} */
-        .lnb li:last-of-type{margin-bottom: 0;}
-        .icon-logo{background-image: url("img/logo_symbol@2x.png"); width: 40px; height: 24px;    display: block;
-            background-size: cover; margin-bottom: 174px;}
-        .icon-home{background-image: url("img/icon_home_active.png"); width: 40px; height: 40px;    display: inline-block;
-            background-size: cover;}
-        .icon-storage{background-image: url("img/icon_storage.png"); width: 40px; height: 40px;    display: inline-block;
-            background-size: cover;}
-        .icon-search{background-image: url("img/icon_search.png"); width: 40px; height: 40px;    display: inline-block;
-            background-size: cover;}
-        .icon-setting{background-image: url("img/icon_settiing.png"); width: 40px; height: 40px;    display: inline-block;
-            background-size: cover;}
-        .icon-exit{background-image:url("img/icon_exit.png"); width: 40px; height: 40px;    display: inline-block;
-            background-size: cover;}
+       
         
         
 /*        ==========조홍인 추가=============*/
@@ -162,28 +148,28 @@
 <body>
 
     <header>
-        <div class="menu active">
-            <h1 class="active">
-                <i class="icon-logo active"></i>
+        <div class="menu">
+            <h1 class="">
+                <i class="icon-logo"></i>
             </h1>
             
             <ul class="lnb">
-                <li class="back-on">
-                    <a href="/home" class="active">
-                           <i class="icon-home active"></i>
-                           홈                   
+                <li class="">
+                    <a href="/home" class="">
+                           <i class="icon-home"></i>
+                           <span class="menu-guide">홈</span>                   
                     </a>             
                 </li>
                 <li>
                     <a href="/storage">
                         <i class="icon-storage"></i>
-                        보관함
+                        <span class="menu-guide">보관함</span>
                     </a>
                 </li>
                 <li>
                     <a href="/search">
                         <i class="icon-search"></i>
-                        검색
+                        <span class="menu-guide">검색</span>
                     </a>
                 </li>
             </ul>
@@ -191,13 +177,13 @@
                 <li>
                     <a href="/setting">
                         <i class="icon-setting"></i>
-                        설정
+                        <span class="menu-guide">설정</span>
                     </a>
                 </li>
                 <li>
                     <a href="/exit">
                         <i class="icon-exit"></i>
-                        나가기
+                        <span class="menu-guide">나가기</span>
                     </a>
                 </li>
             </ul>
@@ -282,6 +268,29 @@
 //            }
 //        })
     
+     
+      //헤더 변화 애니메이션 
+        $('.menu a').on({
+             focus: function() {
+               $('.menu').addClass('active');
+               $('.menu h1').addClass('active');
+               $('.icon-logo').addClass('active');
+               $(this).addClass('active');
+               $(this).find('i').addClass('active');
+              $(this).find('.menu-guide').addClass('active');
+              $('.menu-guide').css('display','inline-block');
+            },
+            blur: function() {
+                 $('.menu').removeClass('active');
+                $('.menu h1').removeClass('active');
+                $('.icon-logo').removeClass('active');
+                $(this).removeClass('active');
+                $(this).find('i').removeClass('active');
+                $(this).find('.menu-guide').removeClass('active');
+                $('.menu-guide').css('display','none');
+            }
+        })
+     
     </script>
 
 </body>
