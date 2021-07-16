@@ -1,0 +1,156 @@
+/*헤더 디자인*/
+     .menu {
+            width: 104px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 115px 0 0 32px;
+            box-sizing: border-box;
+            background-color: #1d1d1d;
+        }
+ .lnb {
+            margin-bottom: 400px;
+            box-sizing: border-box;
+            height: 160px;
+        }
+
+        .contents {
+            width: auto;
+            height: 100vh;
+            position: absolute;
+            left: 104px;
+            padding: 88px 0 0 56px;
+        }
+
+        .lnb li,.gnb li{
+            margin-bottom: 24px;
+        }
+
+        .lnb li:last-of-type, .gnb li:last-of-type{
+            margin-bottom: 0;
+        }
+
+        .icon-logo {
+            background-image: url("../img/logo_symbol@2x.png");
+            width: 40px;
+            height: 24px;
+            display: inline-block;
+            background-size: cover;
+            margin-bottom: 174px;
+        }
+
+        .icon-home {
+            background-image: url("../img/icon-Home.png");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-size: cover;
+        }
+
+        .icon-storage {
+            background-image: url("../img/icon_storage.png");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-size: cover;
+        }
+
+        .icon-search {
+            background-image: url("../img/icon_search.png");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-size: cover;
+        }
+
+        .icon-setting {
+            background-image: url("../img/icon_settiing.png");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-size: cover;
+        }
+
+        .icon-exit {
+            background-image: url("../img/icon_exit.png");
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            background-size: cover;
+        }
+
+.menu a{transition-duration:0.5s;
+        width:}
+
+.menu.active {
+    width:360px;
+}
+
+.menu a.active{
+background-color:#2841FA;
+}
+
+.menu.active a {
+    display:block;
+    width: 320px;
+    height: 58px;
+    padding: 0px 0 0px 20px;
+    border-radius: 6px;
+    /* background-color:#2841FA; */
+    box-sizing: border-box;
+    line-height:58px;
+}
+
+.menu .menu-guide{
+    opacity:0.65;    
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: -0.3px;
+    height: 58px;
+    display:none;
+    vertical-align:middle;
+    line-height:58px;
+}
+
+.menu-guide.active{
+    opacity:1;
+}
+
+.menu.active i {
+    margin-right: 24px;
+    vertical-align: middle;
+}
+
+
+h1.active {
+    width:216px; 
+    height:40px; 
+    margin:0 0 144px 20px;
+}
+
+.icon-logo.active {
+    width:216px; 
+    height:40px; 
+    background-image:url("./../img/patron-logo-big.png");
+}
+.icon-home.active{
+     background-image:url("./../img/icon_home_active@2x.png");
+}
+
+.icon-storage.active {
+    background-image:url("./../img/icon_storage_active@2x.png");
+}
+.icon-search.active{
+     background-image:url("./../img/icon_search_active@2x.png");
+}
+
+.icon-setting.active {
+    background-image:url("./../img/icon_setting_active@2x.png");
+}
+
+.icon-exit.active { 
+    background-image:url("./../img/icon_off_active@2x.png");
+}
