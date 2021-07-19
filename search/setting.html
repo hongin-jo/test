@@ -41,8 +41,321 @@
 
     <!--        gtag('config', 'G-2B2YS1F98B');-->
     <!--    </script>-->
+    
+    <style>
+      /*reset 해야할 것*/
+        body {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            font-family: "Noto Sans KR";
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        i {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            padding-left: 0;
+            margin: 0;
+        }
+           article {
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow:hidden;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            /*설정 페이지 추가 스타일*/
+            background-color:#1d1d1d; 
+        }
+
+    /*설정 페이지 추가 스타일*/
+        .setting-menu{position:relative; width:440px; height:100vh;top: 88px;
+    left: 104px;}
+        .big-title{color:#fff; font-size:56px; font-weight:700;margin:0 0 40px 0;}
+        .mini-title{color:#fff; opacity:0.65; font-weight:400; font-size:22px;}
+        
+    </style>
+    <script>
+        //헤더 변화 애니메이션 (common에 넣기)
+        $('.menu a').on({
+             focus: function() {
+               $('.menu').addClass('active');
+               $('.menu h1').addClass('active');
+               $('.icon-logo').addClass('active');
+               $(this).addClass('active');
+               $(this).find('i').addClass('active');
+              $(this).find('.menu-guide').addClass('active');
+              $('.menu-guide').css('display','inline-block');
+            $('.explanation').addClass('active');
+            $('.carousel').addClass('active');
+            },
+            blur: function() {
+                 $('.menu').removeClass('active');
+                $('.menu h1').removeClass('active');
+                $('.icon-logo').removeClass('active');
+                $(this).removeClass('active');
+                $(this).find('i').removeClass('active');
+                $(this).find('.menu-guide').removeClass('active');
+                $('.menu-guide').css('display','none');
+                     $('.explanation').removeClass('active');
+            $('.carousel').removeClass('active');
+            }
+        })
+    </script>
 </head>
 <body>
-    
+      <header>
+        <div class="menu">
+            <h1 class="">
+                <i class="icon-logo"></i>
+            </h1>
+            
+            <ul class="lnb">
+                <li class="">
+                    <a href="/home" class="">
+                           <i class="icon-home"></i>
+                           <span class="menu-guide">홈</span>                   
+                    </a>             
+                </li>
+                <li>
+                    <a href="/storage">
+                        <i class="icon-storage"></i>
+                        <span class="menu-guide">보관함</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/search">
+                        <i class="icon-search"></i>
+                        <span class="menu-guide">검색</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="gnb">
+                <li>
+                    <a href="/setting">
+                        <i class="icon-setting"></i>
+                        <span class="menu-guide">설정</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/exit">
+                        <i class="icon-exit"></i>
+                        <span class="menu-guide">나가기</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <article>
+        <div class="setting-menu">
+            <h2 class="big-title">설정</h2>
+            <div class="menu-container">
+               <div class="device-info">
+                    <p class="mini-title">기본 설정</p>
+                     <button type="button">
+                         <span>단말 정보</span>
+                         <span class="icon-next"></span>
+                    </button>
+                </div>
+                <div class="default-setting">
+                    <p class="mini-title">기본 설정</p>
+                     <button type="button">
+                         <span>자동 플레이</span>
+                         <span class="icon-next"></span>
+                    </button>
+                     <button type="button">
+                         <span>사운드 미리듣기</span>
+                         <span class="icon-next"></span>
+                    </button>
+                </div>
+                <div class="area-setting">
+                    <p class="mini-title">언어 및 위치</p>
+                     <button type="button">
+                         <span>언어 선택</span>
+                         <span class="icon-next"></span>
+                    </button>
+                     <button type="button">
+                         <span>위치</span>
+                         <span class="icon-next"></span>
+                    </button>
+                </div>
+                <div class="data-info">
+                    <p class="mini-title">기록 및 데이터</p>
+                     <button type="button">
+                         <span>감상 기록 지우기</span>
+                         <span class="icon-next"></span>
+                    </button>
+                     <button type="button">
+                         <span>검색 기록 지우기</span>
+                         <span class="icon-next"></span>
+                    </button>
+                    <button type="button">
+                         <span>앱 재설정</span>
+                         <span class="icon-next"></span>
+                    </button>
+                </div>
+                <div class="service-term">
+                    <p class="mini-title">이용약관 및 개인정보</p>
+                     <button type="button">
+                         <span>서비스 이용약관</span>
+                         <span class="icon-next"></span>
+                    </button>
+                     <button type="button">
+                         <span>개인정보 활용 동의</span>
+                         <span class="icon-next"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="setting-contents">
+            <div class="setting-contents-box1">
+                <p class="big-title">단말 정보</p>
+                <p class="mini-title">가입된 단말정보</p>
+                <ul id="device_info">
+                    <li>
+                        <span class="mid-title1">모델명</span>
+                        <span>KT GIGAGINIE 1</span>
+                    </li>
+                    <li>
+                        <span class="mid-title1">단말ID</span>
+                        <span>D54D-S5S1-SAD4-5S5S-5D1S-D5SD-1S5D-1S</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+<!--
+        <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">자동 플레이</p>
+                <p class="mid-title2">작품 감상 중 추천 작품이 자동으로 이어서 플레이됩니다.</p>
+                <button type="button">
+                    <span>사용</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>사용 안함</span>
+                    <span class="icon-check"></span>
+                </button>
+            </div>
+        </div>
+        
+          <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">사운드 미리듣기</p>
+                <p class="mid-title2">작품을 탐색하는 중에 사운드와 함께 미리보기됩니다.</p>
+                <button type="button">
+                    <span>사용</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>사용 안함</span>
+                    <span class="icon-check"></span>
+                </button>
+            </div>
+        </div>
+          <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">언어</p>
+                <p class="mid-title2">앱 언어가 변경됩니다.<br>작가가 번역을 제공하지 않으면 작품은 원본 언어를 유지합니다.</p>
+                <button type="button">
+                    <span>한국어</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>영어</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>일본어</span>
+                    <span class="icon-check"></span>
+                </button>
+            </div>
+        </div>
+        <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">언어</p>
+                <p class="mid-title2">앱 언어가 변경됩니다.<br>작가가 번역을 제공하지 않으면 작품은 원본 언어를 유지합니다.</p>
+                <button type="button">
+                    <span>한국어</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>영어</span>
+                    <span class="icon-check"></span>
+                </button>
+                <button type="button">
+                    <span>일본어</span>
+                    <span class="icon-check"></span>
+                </button>
+            </div>
+        </div>
+        <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">위치</p>
+                <p class="mid-title2">추천되는 작품과 컬렉션에 영향을 미칠 수 있습니다.<br>앱 언어는 변경되지 않습니다.</p>
+                <button type="button">
+                    <span>한국</span>
+                </button>
+            </div>
+        </div>
+        <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">감상 기록 지우기</p>
+                <p class="mid-title2">이 기기에서 로그인한 상태로 감상한 기록을 삭제합니다.</p>
+                <button type="button">
+                    <span>감상 기록 지우기</span>
+                </button>
+            </div>
+        </div>
+        <div class="setting-contents">
+            <div class="setting-contents-box2">
+                <div></div>
+                <p class="big-title">앱 재설정</p>
+                <p class="mid-title2">연결된 기기 및 계정을 포함해 설정이 삭제됩니다.</p>
+                <button type="button">
+                    <span>앱 재설정</span>
+                </button>
+            </div>
+        </div>
+        
+         <div class="setting-contents">
+            <div class="setting-contents-box3">
+                <p class="big-title">서비스 이용약관</p>
+                <div id="terms_of_service">
+                    
+                </div>
+            </div>
+        </div>
+         
+          <div class="setting-contents">
+            <div class="setting-contents-box3">
+                <p class="big-title">개인정보 취급 방침</p>
+                <div id="privacy_policy">
+                    
+                </div>
+            </div>
+        </div>
+-->
+        
+        
+    </article>
 </body>
 </html>
