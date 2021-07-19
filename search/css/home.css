@@ -190,10 +190,10 @@ a:focus {
 
 .pro-area {
     color: white;
-/*    opacity: 0;*/
+/*    opacity: 0; 수정함*/
         position: absolute;
     left: 160px;
-/*    top: 280px;*/
+/*    top: 280px; 수정함*/
     top:88px;
     z-index: 1;
     color: white;
@@ -208,6 +208,7 @@ a:focus {
     left: 0;
 } */
 
+/*
 .pro-title {
     font-size: 28px;
     font-weight: 700;
@@ -218,6 +219,7 @@ a:focus {
     position: fixed;
     top: 88px;
 }
+*/
 
 .pro-area h1 {
     font-size: 56px;
@@ -237,6 +239,7 @@ a:focus {
     margin-bottom: 8px;
 }
 
+/* 안씀
 .pro-tag {
     font-size: 20px;
     font-weight: 400;
@@ -245,8 +248,13 @@ a:focus {
     opacity: 65%;
     margin-bottom: 20px;
 }
+*/
 
+
+/*수정함*/
 .pro-info {
+    clear:both; 
+    float:left;
     width: 640px;
     height: 136px;
 }
@@ -269,7 +277,7 @@ a:focus {
     opacity: 0;
 }
 
-/**/
+
 .carousel.active {
     left: 416px;
 }

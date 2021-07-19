@@ -10,6 +10,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png">
      <link rel="stylesheet" href="./css/header-active2.css">
+     <link rel="stylesheet" href="./css/home.css">
 
     <!-- 설정 js -->
     <script src="./js/config.js"></script>
@@ -92,15 +93,6 @@
             left: 104px;
             padding: 88px 0 0 56px;
         }
-
-       
-
-       
-      
-      
-
-       
-
 
         /*        ==========조홍인 추가=============*/
         .gradient-box {
@@ -420,9 +412,9 @@
         }
 
         .new-artworks,
-        .theme2,
+        .theme1,
         .must-exhibition,
-        .theme3 {
+        .theme2 {
             position: relative;
             margin-top: 40px;
         }
@@ -536,8 +528,8 @@
             </ul>
         </div>
     </header>
-    <article style="position:fixed; top:0; left:0; background-color:pink">
-        <section class="explanation">
+    <article style="position:fixed; top:0; left:0;">
+        <section class="explanation" id="explanation">
              <div class="gradient-box"></div>
             <div class="main-exhibition" style="">
                 <p class="title1">놓쳐서는 안 될 이 전시</p>
@@ -595,7 +587,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="theme2">
+                <div class="theme1">
                     <p class="title4">여름방학</p>
                     <div class="item-container">
                         <ul class="item-box">
@@ -619,7 +611,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="theme3">
+                <div class="theme2">
                     <p class="title4">존재감 뿜뿜 공간을 살려주는 작품</p>
                     <div class="item-container">
                         <ul class="item-box">
@@ -681,9 +673,9 @@
         }
         moveItem('.play-history .item a', '.play-history .item-container', 420);
         moveItem('.new-artworks .item a', '.new-artworks .item-container', 420);
-        moveItem('.theme2 .item a', '.theme2 .item-container', 420);
+        moveItem('.theme1 .item a', '.theme1 .item-container', 420);
         moveItem('.must-exhibition .item a', '.must-exhibition .item-container', 420);
-        moveItem('.theme3 .item a', '.theme3 .item-container', 420);
+        moveItem('.theme2 .item a', '.theme2 .item-container', 420);
         moveItem('.artist-list .item a', '.artist-list .item-container', 236);
 
         //버튼 변화 함수
@@ -726,25 +718,25 @@
             }
         })
        
-        //새롭게 선보이는 작품이 포커스 됐을 때 carousel-conatiner의 top이 360px 올라간다. .theme2는 opacity가 0.4가 된다 
+        //새롭게 선보이는 작품이 포커스 됐을 때 carousel-conatiner의 top이 360px 올라간다. .theme1는 opacity가 0.4가 된다 
         $('.new-artworks a').on({
             focus: function() {
                 avoidScrollTop();
                 carouselTop = -smallBoxHeight;
                 $('.carousel-container').css('top', carouselTop);
-                $('.theme2').css('opacity', 0.4);
+                $('.theme1').css('opacity', 0.4);
             },
             blur: function() {
                 //opacity가 돌아온다
-                $('.theme2').css('opacity', 1);
+                $('.theme1').css('opacity', 1);
             }
         })
 
 
 
 
-        //theme2가 선택됐을 때 carousel-container의 top이 360px 더 올라간다 
-        $('.theme2 a').on({
+        //theme1가 선택됐을 때 carousel-container의 top이 360px 더 올라간다 
+        $('.theme1 a').on({
             focus: function() {
                 avoidScrollTop();
                 carouselTop = -2*smallBoxHeight;
@@ -764,17 +756,17 @@
                 carouselTop = -3*smallBoxHeight ;
                  $('.carousel').css('top', 88).css('height', 992);
                 $('.carousel-container').css('top', carouselTop);
-                $('.theme3').css('opacity', 0.4);
+                $('.theme2').css('opacity', 0.4);
             },
             blur: function() {
                 //opacity가 돌아온다
-                $('.theme3').css('opacity', 1);
+                $('.theme2').css('opacity', 1);
             }
 
         })
 
-             //theme3가 선택됐을 때 carousel-container의 top이 825px 더 올라간다 
-               $('.theme3 a').on({
+             //theme2가 선택됐을 때 carousel-container의 top이 825px 더 올라간다 
+               $('.theme2 a').on({
                 focus : function(){
                     avoidScrollTop();
                     carouselTop = -smallBoxHeight*3 - bigBoxHeight;
@@ -796,10 +788,7 @@
                     carouselTop = -smallBoxHeight*4 - bigBoxHeight;
                     $('.carousel-container').css('top',carouselTop);
                      $('.carousel').css('top', 536).css('height', 544);
-                },
-                blur : function(){
-                        //
-                    }
+                }
                 })
              
 //더 다양한 작품을 선택해보세요가 선택되었을 때 carousel자체가 top이 0이 되고 높이는 588이 된다. carousel-container의 top은 85px이 내려온다. .artist-list 의 opacity는 0.4가 된다. & 더 다양한 작품을 만나보세요 버튼도 변화한다
@@ -808,11 +797,11 @@
                 $(this).addClass('active'); //버튼 디자인 변화 
                 $('.btn-go-search .icon-search').addClass('active'); //버튼 아이콘 변화
                  avoidScrollTop();
-                    carouselTop = -smallBoxHeight*4 - bigBoxHeight+85;
-                    $('.carousel').css('top',0).css('height', 588);
-                    $('.carousel-container').css('top',carouselTop);
-                       $('.artist-list').css('opacity',0.4);
-                       $('..must-exhibition').css('opacity',0.4);
+                carouselTop = -smallBoxHeight*4 - bigBoxHeight+85;
+                $('.carousel').css('top',0).css('height', 590);
+                $('.carousel-container').css('top',carouselTop);
+                $('.artist-list').css('opacity',0.4);
+                $('.must-exhibition').css('opacity',0.4);
             },
             blur: function() {
                 $(this).removeClass('active'); //버튼 디자인 변화 
@@ -849,7 +838,247 @@
             $('.carousel').removeClass('active');
             }
         })
-     
+
+        //설명글 부분의 UI를 바꾸는 함수
+        function ChangeExplanation(){
+            const $explanation = document.getElementById('explanation')
+            //home을 누르면 main-exhibition이 나온다.
+             $('.play-history a').on({
+            focus: function() {       
+                  var text = `
+                            <div class="gradient-box"></div>
+            <div class="main-exhibition" style="">
+                <p class="title1">놓쳐서는 안 될 이 전시</p>
+                <p class="title2">영화에서 만나는 명화들</p>
+                <p class="title3">파트론 에디터</p>
+                <ul class="tags">
+                    <li><a href="javascript:void(0)">고종황제 서거</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">3.1 운동</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">100주년</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">근대의 유산</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">현대 건축의 재해석</a>
+                        <span class="bar"></span></li>
+                </ul>
+                <div class="artwork-count">
+                    <i class="icon-frame"></i>
+                    <span>600</span>점
+                </div>
+                <p class="exhibition-detail">
+                    국립현대미술관과 덕수궁 관리소가 공동 추최하는 덕수궁-서울 야외프로젝트 : 기억된 미래는 고종황제의 서거와 3.1운동의 100주년을 맞아, 근대의 태동을 알렸던 대한제국 시기 미래 도시를 향한 꿈을 현대 건축가들의 시각으로 재해석한 전시이다.국립현대미술관과 덕수궁 관리소가 공동 추최하는 덕수궁-서울 야외프로젝트 : 기억된 미래는 고종황제의 서거와 3.1운동의 100주년을 맞아, 근대의 태동을 알렸던 대한제국 시기 미래 도시를 향한 꿈을 현대 건축가들의 시각으로 재해석한 전시이다.
+                </p>
+                <ul class="buttons">
+                    <li class="btn-play"><a href="javascript:void(0)"><i class="icon-play-active"></i>감상하기</a></li>
+                    <li class="btn-info"><a href="javascript:void(0)"><i class="icon-info"></i>전시 안내</a></li>
+                </ul>
+            </div>`
+                  
+                  $explanation.innerHTML = text;
+            }   
+        })
+            
+            
+            
+            
+            //000님이 감상하신 작품이 포커스 됐을 때 main-exhibition 이 사라지고 played_artwork가 보인다.
+            $('.play-history a').on({
+            focus: function() {       
+                  var text = `
+                     <div class="gradient-box"></div>
+                    <div class="pro-area" id="played_artwork">
+                    <h1>Daily moment - The Night Sea #2</h1>
+                    <h2>김정언</h2>
+                    <ul class="tags">
+                    <li><a href="javascript:void(0)">사진</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">스팽글</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">팝</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">반짝이는</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">찰나의 순간</a>
+                        <span class="bar"></span></li>
+                </ul>
+                    <div class="pro-info">
+                      <p>
+                        일상과 예술작품 사이의 경계가 없음을 일컬어 ‘팝(pop)’적이라고 부른다면, 김정언의 작품은 그것만으로도 팝적인 요소를 지닌다. 작가는 빛을 하나하나 새기듯이 스팽글을 오브제에 감아 ‘스팽글 오브제’를 제작하고 그 오브제를 찍음으로 ‘반짝이는 찰나의 순간’ 이미지를 형상화 했다.
+                      </p>
+                    </div>
+                  </div>`
+                  
+                  $explanation.innerHTML = text;
+
+            }   
+        })
+        
+        //새롭게 선보이는 작품에 포커스 되면 new_artworks가 보인다 
+         $('.new-artworks a').on({
+            focus: function() {
+                 var text = `
+                     <div class="gradient-box"></div>
+                    <div class="pro-area" id="new_artworks">
+                    <h1>Daily moment - The Night Sea #2</h1>
+                    <h2>김정언</h2>
+                     <ul class="tags">
+                    <li><a href="javascript:void(0)">고종황제 서거</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">3.1 운동</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">100주년</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">근대의 유산</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">현대 건축의 재해석</a>
+                        <span class="bar"></span></li>
+                </ul>
+                    <div class="pro-info">
+                      <p>
+                        나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고,
+                        종달새가 돌아오겠지. '하느님은 땅의 표면을 새로이 한다.' 라고 씌어있다.
+                        '보라, 나는 모든 사물을 새로이한다.' 그리고 신이 대지의 표면을 새롭게
+                        하듯이, 사람의 영혼과 마음과 가슴에 나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고,
+                        종달새가 돌아오겠지.
+                      </p>
+                    </div>
+                  </div>`
+                  
+                  $explanation.innerHTML = text;
+            }
+        })
+            
+    
+          //어머 이건 꼭 봐야할 전시를 클릭하면 아무것도 보이지 않는다. 
+         $('.theme1 a').on({
+            focus: function() {
+                 var text = `
+                     <div class="gradient-box"></div>
+                    <div class="pro-area" id="theme1">
+                    <h1>Ninfee rosa</h1>
+                    <h2>클라우드 모네</h2>
+                     <ul class="tags">
+                    <li><a href="javascript:void(0)">고종황제 서거</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">3.1 운동</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">100주년</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">근대의 유산</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">현대 건축의 재해석</a>
+                        <span class="bar"></span></li>
+                </ul>
+                    <div class="pro-info">
+                      <p>
+                        나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고,
+                        종달새가 돌아오겠지. '하느님은 땅의 표면을 새로이 한다.' 라고 씌어있다.
+                        '보라, 나는 모든 사물을 새로이한다.' 그리고 신이 대지의 표면을 새롭게
+                        하듯이, 사람의 영혼과 마음과 가슴에 나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고
+                        종달새가 돌아오겠지.
+                      </p>
+                    </div>
+                  </div>`
+                  
+                  $explanation.innerHTML = text;
+            }
+        })
+            
+    
+         //어머 이건 꼭 봐야할 전시를 클릭하면 아무것도 보이지 않는다. 
+         $('.must-exhibition a').on({
+            focus: function() {
+                 var text = ` <div class="gradient-box"></div>
+                  `
+                  
+                  $explanation.innerHTML = text;
+            }
+        })
+
+            
+         //theme2를 클릭하면 theme2가 나온다. 
+           $('.theme2 a').on({
+            focus: function() {
+                 var text = `
+                     <div class="gradient-box"></div>
+                    <div class="pro-area" id="theme2">
+                    <h1>산토끼 토끼야 어디를 가느냐</h1>
+                    <h2>김미래</h2>
+                    <ul class="tags">
+                    <li><a href="javascript:void(0)">회화</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">실루엣</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">밤</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">감정적인</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">찰나의 순간</a>
+                        <span class="bar"></span></li>
+                </ul>
+                    <div class="pro-info">
+                      <p>
+                        나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고,
+                        종달새가 돌아오겠지. '하느님은 땅의 표면을 새로이 한다.' 라고 씌어있다.
+                        '보라, 나는 모든 사물을 새로이한다.' 그리고 신이 대지의 표면을 새롭게
+                        하듯이, 사람의 영혼과 마음과 가슴에 나는 오늘 아침 대성당에 많은 까마귀가 있는 것을 보았다. 이제 곧 봄이 오고
+                        종달새가 돌아오겠지.
+                      </p>
+                    </div>
+                  </div>`
+                  
+                  $explanation.innerHTML = text;
+            }
+        })
+            
+            
+           //작가를 클릭하면 작가설명이 나온다. 
+           $('.artist-list a').on({
+            focus: function() {
+                 var text = `
+                     <div class="gradient-box"></div>
+                    <div class="pro-area" id="artist">
+                    <h1>클라우드 모네</h1>
+                     <ul class="tags">
+                    <li><a href="javascript:void(0)">프랑스</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">인상주의</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">빛의 세계</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">밝은 색조</a>
+                        <span class="bar"></span></li>
+                    <li><a href="javascript:void(0)">인상파의 시작</a>
+                        <span class="bar"></span></li>
+                </ul>
+                    <div class="artwork-count">
+                    <i class="icon-frame"></i>
+                    <span>600</span>점
+                </div>
+                    <div class="pro-info">
+                      <p>
+                       파리에서 출생하여 소년 시절을 르아브르에서 보냈다 그곳에서 부댕의 문하생이 되어 정식 미술 교육을 받게 되었다. 그 후 1859년 파리로 나가 피사로·시슬레·르누아르·바지유 등과 사귀게 되었다. 마네의 밝은 화풍에 끌려 밝은 야외 광선 묘사에 주력하였다.
+                      </p>
+                    </div>
+                  </div>`
+                  
+                  $explanation.innerHTML = text;
+            }
+        })
+            //버튼을 누르면 아무것도 나오지않는다
+        $('.btn-go-search').on({
+            focus: function(){
+                             var text = `
+                     <div class="gradient-box"></div>`
+                  
+                  $explanation.innerHTML = text;
+            }
+        })    
+        }
+        
+      ChangeExplanation();
         
     </script>
 
