@@ -417,9 +417,11 @@
 
         //2초 후 이미지 사이즈 변경
         $(this).addClass('on');
+        $(this).parent().addClass('size');
         console.log(this);
       },
       blur: function () {
+        $(this).parent().removeClass('size');
         // avoidScrollTop();
         // $('.main-exhibition').css('opacity', '0');
         // $('.must-exhibition').css('opacity', 0.4);

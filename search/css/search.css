@@ -235,16 +235,16 @@
     flex-wrap: nowrap;
     position: sticky;
     top: 234px;
-    background-color: #2841FA;
-}
-
-.test {
-    
+    transition-duration: 1s;
 }
 
 .slide {
     position: relative;
     overflow: hidden;
+}
+
+.art-slideBox {
+    display: inline-block;
 }
 
 .slide .art-item {
@@ -317,4 +317,38 @@
     height: 255px;
     border-radius: 6px;
     background-image: linear-gradient(to bottom, rgba(29, 29, 29, 0) 50%, #1d1d1d 99.93%);
+}
+
+
+/*search-result 슬라이드*/
+.carousel.active {
+    transition: top 0.5s ease-out;
+}
+
+.carousel {
+    position: fixed;
+    left: 160px;
+    height: 846px;
+    width: 1920px;
+    overflow: hidden;
+    transition-duration: 1s;
+    /* background-color: aquamarine; */
+}
+
+.carousel-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 1s;
+/*            clear:both;*/
+
+}
+
+.opacity-box {
+    width: 1920px;
+    height: 51px;
+    color: #1d1d1d;
+    position: fixed;
+    top: 1029px;
+    opacity: 0.4;
 }

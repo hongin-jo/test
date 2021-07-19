@@ -276,6 +276,7 @@ a:focus {
     width: 1920px;
     overflow: hidden;
     transition-duration: 1s;
+    background-color: aquamarine;
 }
 
 .carousel-container {
@@ -334,6 +335,15 @@ a:focus {
 
 .must-exhibition .item {
     height: 720px;
+    background-position-x: center;
+    background-size: cover;
+}
+
+.must-exhibition .item.size {
+    width: 1080px;
+    transition: ease 0.5s 2s;
+    background-position-x: center;
+    background-size: cover;
 }
 
 .must-exhibition .item a {
@@ -341,8 +351,10 @@ a:focus {
 }
 
 .must-exhibition .item a.on {
-    height: 1080px;
-    transition: ease-out 0.5s 2s;
+    width: 1080px;
+    transition: ease 0.5s 2s;
+    background-position-x: center;
+    background-size: cover;
 }
 
 .must-exhibition .item a.active {
